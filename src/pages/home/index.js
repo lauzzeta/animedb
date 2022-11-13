@@ -84,7 +84,7 @@ export default function Home() {
             color="#3d0042"
             sx={{ fontWeight: 800, mt: 1 }}
           >
-            Rocket Tracker
+            Rocket Stats
           </Typography>
         </Box>
       </Slide>
