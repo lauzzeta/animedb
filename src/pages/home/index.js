@@ -26,7 +26,7 @@ export default function Home() {
   const [selectedPlatform, setSelectedPlatform] = useState(platforms[0]);
   const [player, setPlayer] = useState();
   const [error, setError] = useState(false);
-  // const [stats, setStats] = useState();
+  const [stats, setStats] = useState();
   // const [rank, setRank] = useState();
   const [loading, setLoading] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
@@ -59,6 +59,7 @@ export default function Home() {
       setError(true);
       setLoading(false);
     } else {
+      console.log(response);
       setPlayer(response.user);
       setLoading(false);
     }
