@@ -26,7 +26,7 @@ export const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ["Inter"].join(","), //Roboto Condensed
+    fontFamily: ["Roboto Mono"].join(","), //Roboto Condensed
   },
 });
 
