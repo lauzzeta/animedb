@@ -4,5 +4,20 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-attachment: fixed;
   background-size: cover;
-  background-image: url('https://cdn.wallpapersafari.com/98/45/bI8EWo.jpg');
+  background: linear-gradient(180deg, #67e5ee 0%, rgb(183, 238, 245) 37%, rgb(247, 168, 227) 69%, #f37899 100%);
+  height: 100vh;
+}
+.overlay {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-color: transparent;
+  background-size: 5px 5px, 5px 5px;
+  background-position: -1px -1px, -1px -1px;
+  background-image: linear-gradient(rgba(255, 255, 255, .05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, .05) 1px, transparent 1px);
+  mix-blend-mode: difference;
 }
