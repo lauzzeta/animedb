@@ -84,9 +84,19 @@ export default function Home() {
           sx={{
             padding: 2,
           }}
-        ></Box>
-        <Grid container spacing={4}>
-          <Grid item xs={12} md={6}>
+        >
+          {/* <Box
+          component="img"
+          sx={{
+            height: 233,
+            width: 350,
+            maxHeight: { xs: 233, xl: 900 },
+            maxWidth: { xs: 350, xl: 1000 },
+          }}
+          alt="The house from the offer."
+          src="https://i.imgur.com/bd6r5hi.png"
+          /> */}
+        </Box>
             <Card
               sx={{
                 border: "0px solid #0051c7",
@@ -98,260 +108,344 @@ export default function Home() {
                 style={{
                   background: "#FF019A",
                   border: "2px solid #5C2C6D",
+                  display:"flex",
+                  alignItems:"center"
                 }}
                 action={
-                  <IconButton size="small">
+                  <IconButton sx={{transform:"scale(1.25)"}}>
                     <GitHubIcon />
                   </IconButton>
                 }
+                title={
+                  <Box sx={{display:"flex", alignItems:"center", gap:"1rem"}}>
+                  <img src="https://img.icons8.com/color/480/rocket-league.png" style={{width:"35px", height:"35px"}}/>
+                  <Typography color="initial" sx={{fontWeight:"400", fontSize:"1.5rem"}}>Rocket Stats</Typography>
+                  </Box>   
+              }
               />
               <CardContent
                 sx={{
                   display: "flex",
+                  flexDirection:"column",
                   justifyContent: "center",
-                  alignItems: "center",
                   borderRight: "2px solid #5C2C6D",
                   borderLeft: "2px solid #5C2C6D",
                   borderBottom: "2px solid #5C2C6D",
-
                   // background: "white",
                   // backgroundImage:
                   //   "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
                   // backgroundSize: "3em 3em",
                 }}
               >
-                <Typography
-                  variant="h4"
-                  color="#5C2C6D"
-                  sx={{
-                    fontWeight: 600,
-                    p: 2,
-                    textDecoration: "underline",
-                    textDecorationColor: "#5C2C6D",
-                  }}
-                >
-                  Rocket Stats
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Card
-              sx={{
-                border: "0px solid #300350",
-                borderRadius: 0,
-                boxShadow: "-10px 9px 0px 0px #300350",
-                borderRight: "2px solid #300350",
-                borderLeft: "2px solid #300350",
-                borderBottom: "2px solid #300350",
-              }}
-            >
-              <CardHeader
-                title={`Search player ${selectedPlatform.placeholder}`}
-                style={{
-                  background: "#F9AC53",
-                  borderBottom: "2px solid #300350",
-                  borderTop: "2px solid #300350",
-                }}
-                action={
-                  <>
-                    <IconButton
-                      id="fade-button"
-                      aria-controls={open ? "fade-menu" : undefined}
-                      aria-haspopup="true"
-                      aria-expanded={open ? "true" : undefined}
-                      onClick={handleClick}
-                      sx={{ color: "primary.main" }}
-                    >
-                      {selectedPlatform.icon}
-                    </IconButton>
-                    <Menu
-                      id="fade-menu"
-                      MenuListProps={{
-                        "aria-labelledby": "fade-button",
+                <Grid container spacing={2}>
+
+                  <Grid item md={7}>
+                    <Card
+                      sx={{
+                        width:"100%",
+                        border: "0px solid #300350",
+                        borderRadius: 0,
+                        boxShadow: "-10px 9px 0px 0px #300350",
+                        borderRight: "2px solid #300350",
+                        borderLeft: "2px solid #300350",
+                        borderBottom: "2px solid #300350",
                       }}
-                      anchorEl={anchorEl}
-                      open={open}
-                      onClose={handleClose}
-                      TransitionComponent={Fade}
                     >
-                      {platforms.map((el, i) => (
-                        <MenuItem
-                          key={i}
-                          onClick={() => {
-                            handleSelect(i);
-                          }}
-                        >
-                          {el.icon}
-                        </MenuItem>
-                      ))}
-                    </Menu>
-                  </>
-                }
-              />
-              <CardContent
-                sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
+                      <CardHeader
+                        title={
+                          <>
+                          <Typography color="initial">{`Search player ${selectedPlatform.placeholder}`}</Typography>
+                          </>
+                        }
+                        style={{
+                          background: "#F9AC53",
+                          borderBottom: "2px solid #300350",
+                          borderTop: "2px solid #300350",
+                        }}
+                        action={
+                          <>
+                            <IconButton
+                              id="fade-button"
+                              aria-controls={open ? "fade-menu" : undefined}
+                              aria-haspopup="true"
+                              aria-expanded={open ? "true" : undefined}
+                              onClick={handleClick}
+                              sx={{ color: "primary.main" }}
+                            >
+                              {selectedPlatform.icon}
+                            </IconButton>
+                            <Menu
+                              id="fade-menu"
+                              MenuListProps={{
+                                "aria-labelledby": "fade-button",
+                              }}
+                              anchorEl={anchorEl}
+                              open={open}
+                              onClose={handleClose}
+                              TransitionComponent={Fade}
+                            >
+                              {platforms.map((el, i) => (
+                                <MenuItem
+                                  key={i}
+                                  onClick={() => {
+                                    handleSelect(i);
+                                  }}
+                                >
+                                  {el.icon}
+                                </MenuItem>
+                              ))}
+                            </Menu>
+                          </>
+                        }
+                      />
+                      <CardContent
+                        sx={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
 
-                  // background: "white",
-                  // backgroundImage:
-                  //   "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
-                  // backgroundSize: "3em 3em",
-                }}
-              >
-                <CustomTextField
-                  fullWidth
-                  autoFocus
-                  id="outlined-basic"
-                  variant="standard"
-                  placeholder={`Type here...`}
-                  onChange={handleChange}
-                  InputProps={{
-                    endAdornment: (
-                      <IconButton
-                        sx={{ marginLeft: ".6rem", mb: 1 }}
-                        onClick={() => {
-                          searchPlayer();
+                          // background: "white",
+                          // backgroundImage:
+                          //   "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
+                          // backgroundSize: "3em 3em",
                         }}
                       >
-                        <SearchIcon sx={{ color: "#300350" }} />
-                      </IconButton>
-                    ),
-                  }}
-                />
+                        <CustomTextField
+                          fullWidth
+                          autoFocus
+                          id="outlined-basic"
+                          variant="standard"
+                          placeholder={`Type here...`}
+                          onChange={handleChange}
+                          InputProps={{
+                            endAdornment: (
+                              <IconButton
+                                sx={{ marginLeft: ".6rem", mb: 1 }}
+                                onClick={() => {
+                                  searchPlayer();
+                                }}
+                              >
+                                <SearchIcon sx={{ color: "#300350" }} />
+                              </IconButton>
+                            ),
+                          }}
+                        />
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                  <Grid item md={5} sx={{display:"flex", alignItems:"center",justifyContent:"center"}}>
+                  {error ? (
+                    <Typography
+                      variant="h4"
+                      color="primary.main"
+                      sx={{ fontWeight: 800 }}
+                    >
+                      User not found
+                    </Typography>
+                ) : loading ? (
+                    <CircularProgress color="secondary" />
+                ) : (
+                  player?.image && (
+                    <>
+                      <Grid item xs={12} md={10}>
+                        <Card
+                          sx={{
+                            border: "0px solid #300350",
+                            borderRadius: 0,
+                            boxShadow: "-10px 9px 0px 0px #300350",
+                            borderRight: "2px solid #300350",
+                            borderLeft: "2px solid #300350",
+                            borderBottom: "2px solid #300350",
+                          }}
+                        >
+                          <CardHeader
+                            style={{
+                              background: "#F9AC53",
+                              borderBottom: "2px solid #300350",
+                              borderTop: "2px solid #300350",
+                            }}
+                            avatar={<Avatar src={player?.image} />}
+                            title={
+                              <Typography
+                                variant="h5"
+                                sx={{
+                                  fontWeight: 400,
+                                }}
+                              >
+                                {player?.name}
+                              </Typography>
+                            }
+                          />
+                          <CardContent
+                            sx={{
+                              background: "white",
+                              backgroundImage:
+                                "linear-gradient(#FF019A .1em, transparent .1em), linear-gradient(90deg, #FF019A .1em, transparent .1em)",
+                              backgroundSize: "2em 2em",
+                            }}
+                          />
+                        </Card>
+                      </Grid>
+                    </>
+                ))}
+                  </Grid>
+                </Grid>
+                {/*                 
+                  <Typography
+                    variant="h4"
+                    color="#5C2C6D"
+                    sx={{
+                      fontWeight: 700,
+                      p: 2,
+                      textDecoration: "underline",
+                      textTransform:"uppercase",
+                      textDecorationColor: "#5C2C6D",
+                    }}
+                  >
+                    Rocket Stats
+                  </Typography> */}
+
+                  {/* <Card
+                    sx={{
+                      width:"40%",
+                      border: "0px solid #300350",
+                      borderRadius: 0,
+                      boxShadow: "-10px 9px 0px 0px #300350",
+                      borderRight: "2px solid #300350",
+                      borderLeft: "2px solid #300350",
+                      borderBottom: "2px solid #300350",
+                    }}
+                  >
+                    
+                  </Card> */}
+                {error ? (
+                  ''
+                    // <Typography
+                    //   variant="h4"
+                    //   color="primary.main"
+                    //   sx={{ fontWeight: 800 }}
+                    // >
+                    //   User not found
+                    // </Typography>
+                ) : loading ? (
+                  ''
+                    // <CircularProgress color="secondary" />
+                ) : (
+                  player?.image && (
+                    <>
+                      {/* <Grid item xs={12} md={4}>
+                        <Card
+                          sx={{
+                            border: "0px solid #300350",
+                            borderRadius: 0,
+                            boxShadow: "-10px 9px 0px 0px #300350",
+                            borderRight: "2px solid #300350",
+                            borderLeft: "2px solid #300350",
+                            borderBottom: "2px solid #300350",
+                          }}
+                        >
+                          <CardHeader
+                            style={{
+                              background: "#F9AC53",
+                              borderBottom: "2px solid #300350",
+                              borderTop: "2px solid #300350",
+                            }}
+                            avatar={<Avatar src={player?.image} />}
+                            title={
+                              <Typography
+                                variant="h5"
+                                sx={{
+                                  fontWeight: 400,
+                                }}
+                              >
+                                {player?.name}
+                              </Typography>
+                            }
+                          />
+                          <CardContent
+                            sx={{
+                              background: "white",
+                              backgroundImage:
+                                "linear-gradient(#FF019A .1em, transparent .1em), linear-gradient(90deg, #FF019A .1em, transparent .1em)",
+                              backgroundSize: "2em 2em",
+                            }}
+                          />
+                        </Card>
+                      </Grid> */}
+                      <Grid item xs={12} md={8}>
+                        <Card
+                          sx={{
+                            marginTop:"2rem",
+                            border: "0px solid #300350",
+                            borderRadius: 0,
+                            boxShadow: "-10px 9px 0px 0px #300350",
+                            borderRight: "2px solid #300350",
+                            borderLeft: "2px solid #300350",
+                            borderBottom: "2px solid #300350",
+                          }}
+                        >
+                          <CardHeader
+                            avatar={<Avatar src={player?.reward?.icon} />}
+                            title={
+                              <Typography
+                                sx={{
+                                  fontWeight: 400,
+                                  fontSize:"1.125rem"
+                                }}
+                              >
+                                {`Season reward level: ${player?.reward?.level}`}
+                              </Typography>
+                            }
+                            style={{
+                              background: "#F9AC53",
+                              borderBottom: "2px solid #300350",
+                              borderTop: "2px solid #300350",
+                            }}
+                          />
+                          <CardContent
+                            sx={{
+                              display: "flex",
+                              justifyContent: "space-evenly",
+                              alignItems: "center",
+                              flexWrap:"wrap",
+                              // background: "white",
+                              // backgroundImage:
+                              //   "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
+                              // backgroundSize: "3em 3em",
+                            }}
+                          >
+                            {stats?.map((el) => (
+                              <Box sx={{display:"flex", flexDirection:"column", alignItems:"center", gap:".5rem", textAlign:"center"}}>
+                                <Typography
+                                  color="#5C2C6D"
+                                  sx={{
+                                    fontWeight: 600,
+                                    textDecoration: "underline",
+                                    textDecorationColor: "#5C2C6D",
+                                  }}
+                                >
+                                  {el.stat}
+                                </Typography>
+                                <Typography
+                                  color="#5C2C6D"
+                                  sx={{
+                                    fontWeight: 600,
+                                  }}
+                                >
+                                  {el.value}
+                                </Typography>
+                              </Box>
+                            ))}
+                          </CardContent>
+                        </Card>
+                      </Grid>
+                    </>
+                  )
+                )}
+
               </CardContent>
             </Card>
-          </Grid>
-          {error ? (
-            <Grid item xs={12} md={12}>
-              <Typography
-                variant="h4"
-                color="primary.main"
-                sx={{ fontWeight: 800 }}
-              >
-                User not found
-              </Typography>
-            </Grid>
-          ) : loading ? (
-            <Grid item xs={12} md={12}>
-              <CircularProgress color="secondary" />
-            </Grid>
-          ) : (
-            player?.image && (
-              <>
-                <Grid item xs={12} md={4}>
-                  <Card
-                    sx={{
-                      border: "0px solid #300350",
-                      borderRadius: 0,
-                      boxShadow: "-10px 9px 0px 0px #300350",
-                      borderRight: "2px solid #300350",
-                      borderLeft: "2px solid #300350",
-                      borderBottom: "2px solid #300350",
-                    }}
-                  >
-                    <CardHeader
-                      style={{
-                        background: "#F9AC53",
-                        borderBottom: "2px solid #300350",
-                        borderTop: "2px solid #300350",
-                      }}
-                      avatar={<Avatar src={player?.image} />}
-                      title={
-                        <Typography
-                          variant="h5"
-                          sx={{
-                            fontWeight: 400,
-                          }}
-                        >
-                          {player?.name}
-                        </Typography>
-                      }
-                    />
-                    <CardContent
-                      sx={{
-                        background: "white",
-                        backgroundImage:
-                          "linear-gradient(#FF019A .1em, transparent .1em), linear-gradient(90deg, #FF019A .1em, transparent .1em)",
-                        backgroundSize: "2em 2em",
-                      }}
-                    />
-                  </Card>
-                </Grid>
-                <Grid item xs={12} md={8}>
-                  <Card
-                    sx={{
-                      border: "0px solid #300350",
-                      borderRadius: 0,
-                      boxShadow: "-10px 9px 0px 0px #300350",
-                      borderRight: "2px solid #300350",
-                      borderLeft: "2px solid #300350",
-                      borderBottom: "2px solid #300350",
-                    }}
-                  >
-                    <CardHeader
-                      avatar={<Avatar src={player?.reward?.icon} />}
-                      title={
-                        <Typography
-                          variant="h5"
-                          sx={{
-                            fontWeight: 400,
-                          }}
-                        >
-                          {`Season reward level: ${player?.reward?.level}`}
-                        </Typography>
-                      }
-                      style={{
-                        background: "#F9AC53",
-                        borderBottom: "2px solid #300350",
-                        borderTop: "2px solid #300350",
-                      }}
-                    />
-                    <CardContent
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
 
-                        // background: "white",
-                        // backgroundImage:
-                        //   "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
-                        // backgroundSize: "3em 3em",
-                      }}
-                    >
-                      {stats?.map((el) => (
-                        <Box>
-                          <Typography
-                            color="#5C2C6D"
-                            sx={{
-                              fontWeight: 600,
-                              p: 2,
-                              textDecoration: "underline",
-                              textDecorationColor: "#5C2C6D",
-                            }}
-                          >
-                            {el.stat}
-                          </Typography>
-                          <Typography
-                            color="#5C2C6D"
-                            sx={{
-                              fontWeight: 600,
-                              p: 2,
-                            }}
-                          >
-                            {el.value}
-                          </Typography>
-                        </Box>
-                      ))}
-                    </CardContent>
-                  </Card>
-                </Grid>
-              </>
-            )
-          )}
-        </Grid>
       </Container>
     </>
   );
