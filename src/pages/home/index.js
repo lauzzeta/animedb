@@ -102,10 +102,12 @@ export default function Home() {
           >
             <CardHeader
               style={{
-                background: "#FF019A",
+                 background: "#FF019A",
+                // GRADIENTE COMO DIV DE DENTRO background: "-webkit-linear-gradient(180deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%)",
                 border: "2px solid #5C2C6D",
                 display: "flex",
                 alignItems: "center",
+                padding:".5rem 1rem"
               }}
               action={
                 <IconButton size="medium">
@@ -114,7 +116,7 @@ export default function Home() {
               }
               title={
                 <Box
-                  sx={{ display: "flex", alignItems: "center", gap: "1rem" }}
+                  sx={{ display: "flex", alignItems: "center", gap: ".5rem" }}
                 >
                   <img
                     src="https://img.icons8.com/color/480/rocket-league.png"
@@ -123,7 +125,7 @@ export default function Home() {
                   />
                   <Typography
                     color="white"
-                    sx={{ fontWeight: "400", fontSize: "1.5rem" }}
+                    sx={{ fontWeight: "400", fontSize: "1.25rem" }}
                   >
                     Rocket Stats
                   </Typography>
@@ -138,10 +140,10 @@ export default function Home() {
                 borderRight: "2px solid #5C2C6D",
                 borderLeft: "2px solid #5C2C6D",
                 borderBottom: "2px solid #5C2C6D",
-                // background: "white",
+                background: "#dffffa",
                 // backgroundImage:
                 //   "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
-                // backgroundSize: "3em 3em",
+                // backgroundSize: "3rem 3rem",
               }}
             >
               <Grid container spacing={2}>
@@ -293,99 +295,42 @@ export default function Home() {
                           alt=""
                           src={player?.image}
                         />
-                        <Typography
-                          variant="h4"
-                          color="#300350"
-                          sx={{ fontWeight: 500 }}
-                        >
-                          {player?.name}
-                        </Typography>
+                        <Box sx={{display:"flex", flexDirection:"column", borderLeft:"2px solid #5C2C6D", pl:"1rem"}}>
+                          <Typography
+                            color="#300350"
+                            sx={{ fontWeight: 500, mx:'auto', fontSize:"1.25rem", borderBottom:"2px solid #5C2C6D", mb:".5rem" }}
+                          >
+                            {player?.name}
+                          </Typography>
+                          <Typography
+                            color="#300350"
+                            sx={{ fontWeight: 500, ml:".5rem", fontSize:"1rem" }}
+                          >
+                            Reward level:
+                          </Typography>
+                          <Box sx={{display:"flex", alignItems:"center", gap:".5rem"}}>
+                            <img
+                                src={player?.reward.icon}
+                                alt="rank logo"
+                                style={{ width: "40px", height: "40px" }}
+                            />
+                            <Typography
+                              color="#300350"
+                              sx={{ fontWeight: 500, fontSize:"1rem" }}
+                            >
+                              {player?.reward.level}
+                            </Typography>
+                          </Box>
+                         
+                        </Box> 
                       </>
                     )
                   )}
                 </Grid>
               </Grid>
-              {/*                 
-                  <Typography
-                    variant="h4"
-                    color="#5C2C6D"
-                    sx={{
-                      fontWeight: 700,
-                      p: 2,
-                      textDecoration: "underline",
-                      textTransform:"uppercase",
-                      textDecorationColor: "#5C2C6D",
-                    }}
-                  >
-                    Rocket Stats
-                  </Typography> */}
-
-              {/* <Card
-                    sx={{
-                      width:"40%",
-                      border: "0px solid #300350",
-                      borderRadius: 0,
-                      boxShadow: "-10px 9px 0px 0px #300350",
-                      borderRight: "2px solid #300350",
-                      borderLeft: "2px solid #300350",
-                      borderBottom: "2px solid #300350",
-                    }}
-                  >
-                    
-                  </Card> */}
-              {error
-                ? ""
-                : // <Typography
-                //   variant="h4"
-                //   color="primary.main"
-                //   sx={{ fontWeight: 800 }}
-                // >
-                //   User not found
-                // </Typography>
-                loading
-                ? ""
-                : // <CircularProgress color="secondary" />
+              {
                   player?.image && (
                     <>
-                      {/* <Grid item xs={12} md={4}>
-                        <Card
-                          sx={{
-                            border: "0px solid #300350",
-                            borderRadius: 0,
-                            boxShadow: "-10px 9px 0px 0px #300350",
-                            borderRight: "2px solid #300350",
-                            borderLeft: "2px solid #300350",
-                            borderBottom: "2px solid #300350",
-                          }}
-                        >
-                          <CardHeader
-                            style={{
-                              background: "#F9AC53",
-                              borderBottom: "2px solid #300350",
-                              borderTop: "2px solid #300350",
-                            }}
-                            avatar={<Avatar src={player?.image} />}
-                            title={
-                              <Typography
-                                variant="h5"
-                                sx={{
-                                  fontWeight: 400,
-                                }}
-                              >
-                                {player?.name}
-                              </Typography>
-                            }
-                          />
-                          <CardContent
-                            sx={{
-                              background: "white",
-                              backgroundImage:
-                                "linear-gradient(#FF019A .1em, transparent .1em), linear-gradient(90deg, #FF019A .1em, transparent .1em)",
-                              backgroundSize: "2em 2em",
-                            }}
-                          />
-                        </Card>
-                      </Grid> */}
                       <Grid item xs={12} md={12}>
                         <Card
                           sx={{
@@ -400,61 +345,68 @@ export default function Home() {
                         >
                           <CardContent
                             sx={{
+                              padding:0,
                               display: "flex",
-                              justifyContent: "space-evenly",
+                              flexDirection: "column",
                               alignItems: "center",
                               flexWrap: "wrap",
-                              // background: "white",
+                              // background: "#e1f0dd",
                               // backgroundImage:
                               //   "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
                               // backgroundSize: "3em 3em",
                             }}
                           >
-                            {stats
-                              ?.filter(
-                                (el) =>
-                                  el.stat !== "TRN Score" &&
-                                  el.stat !== "Goal Shot Ratio"
-                              )
-                              .map((el, i) => (
-                                <Box
-                                  sx={{
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    alignItems: "center",
-                                    gap: ".5rem",
-                                    textAlign: "center",
-                                  }}
-                                >
-                                  <Avatar
-                                    src={statsImage[i]?.icon}
+                            <Box sx={{m:"0 0 1rem 0", display:"flex", background: "-webkit-linear-gradient(180deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%)",
+ width:"100%", padding:".25rem .5rem"}}>
+                              <Typography color="white" sx={{fontWeight:400, fontSize:"1.1rem"}}>general stats</Typography>
+                            </Box>
+                            <Box sx={{display:"flex", justifyContent:"space-evenly", width:"100%"}}>
+                              {stats
+                                ?.filter(
+                                  (el) =>
+                                    el.stat !== "TRN Score" &&
+                                    el.stat !== "Goal Shot Ratio"
+                                )
+                                .map((el, i) => (
+                                  <Box
                                     sx={{
-                                      width: 45,
-                                      height: 45,
-                                      filter:
-                                        "drop-shadow(-3px 2px 0px #5C2C6D)",
-                                    }}
-                                  />
-                                  <Typography
-                                    color="#5C2C6D"
-                                    sx={{
-                                      fontWeight: 600,
-                                      textDecoration: "underline",
-                                      textDecorationColor: "#5C2C6D",
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      alignItems: "center",
+                                      textAlign: "center",
                                     }}
                                   >
-                                    {el.stat}
-                                  </Typography>
-                                  <Typography
-                                    color="#5C2C6D"
-                                    sx={{
-                                      fontWeight: 600,
-                                    }}
-                                  >
-                                    {el.value}
-                                  </Typography>
-                                </Box>
-                              ))}
+                                    <Avatar
+                                      src={statsImage[i]?.icon}
+                                      sx={{
+                                        width: 45,
+                                        height: 45,
+                                        filter:
+                                          "drop-shadow(-3px 2px 0px #5C2C6D)",
+                                      }}
+                                    />
+                                    <Typography
+                                      color="#5C2C6D"
+                                      sx={{
+                                        fontWeight: 600,
+                                        textDecoration: "underline",
+                                        textDecorationColor: "#5C2C6D",
+                                      }}
+                                    >
+                                      {el.stat}
+                                    </Typography>
+                                    <Typography
+                                      color="#5C2C6D"
+                                      sx={{
+                                        fontWeight: 600,
+                                      }}
+                                    >
+                                      {el.value}
+                                    </Typography>
+                                  </Box>
+                                ))}
+                            </Box>
+                            
                           </CardContent>
                         </Card>
                       </Grid>
