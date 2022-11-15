@@ -276,7 +276,7 @@ export default function Home() {
                       User not found
                     </Typography>
                   ) : loading ? (
-                    <CircularProgress color="secondary" />
+                    <CircularProgress color="primary" />
                   ) : (
                     player?.image && (
                       <>
