@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <>
       <div className="overlay"></div>
-      <Container maxWidth="md" height="100vh" sx={{ mt: 2, mb: 4 }}>
+      <Container maxWidth="md" height="100vh" sx={{ pt: 2, pb: 4, minHeight:"100vh" }}>
         <Slide in direction="down" {...(true ? { timeout: 1000 } : {})}>
           <Card
             sx={{

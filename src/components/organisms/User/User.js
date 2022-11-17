@@ -11,7 +11,7 @@ export default function User({ error, loading, player }) {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        gap: 2,
+        gap: 2
       }}
     >
       {error ? (
@@ -40,16 +40,25 @@ export default function User({ error, loading, player }) {
               flexDirection: "column",
               borderLeft: "2px solid #5C2C6D",
               pl: "1rem",
+              width:"50%",
+              maxHeight:"100%"
             }}
+            style={{textOverflow:"ellipsis"}}
           >
             <Typography
               color="#300350"
               sx={{
                 fontWeight: 500,
-                mx: "auto",
                 fontSize: "1.25rem",
                 borderBottom: "2px solid #5C2C6D",
                 mb: ".5rem",
+                maxWidth:"100%",
+                overflow: "hidden",
+                // height:"min-content",
+                // wordBreak:"break-all",
+                whiteSpace: "nowrap",
+                textOverflow:"ellipsis",
+                lineHeight:"1.25"
               }}
             >
               {player?.name}
@@ -90,7 +99,27 @@ export default function User({ error, loading, player }) {
           </Box>
         </>
       ) : (
-        <>Imagen de algun auto</>
+        <Box sx={{ backgroundImage:
+             "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
+           backgroundSize: "2.5rem 2.5rem",
+           backgroundColor:"transparent",
+           width:"100%", height:"100%",
+           display:"flex",
+           justifyContent:"center",
+           alignItems:"center"}}>
+          <Box
+            component="img"
+            sx={{
+              height: 70,
+              width: 180,
+              maxHeight: { xs: 233, xl: 900 },
+              maxWidth: { xs: 350, xl: 1000 },
+              filter: "hue-rotate(290deg)",
+            }}
+            alt="The house from the offer."
+            src="https://i.imgur.com/Hv4PMET.png"
+          />
+       </Box> 
       )}
     </Grid>
   );
