@@ -22,13 +22,7 @@ export default function User({ error, loading, player }) {
         gap: 2,
       }}
     >
-      {error ? (
-        <Typography variant="h4" color="primary.main" sx={{ fontWeight: 800 }}>
-          User not found
-        </Typography>
-      ) : loading ? (
-        <CircularProgress color="primary" />
-      ) : player?.image ? (
+      {player?.image ? (
         <>
           <Box
             component="img"
@@ -122,16 +116,16 @@ export default function User({ error, loading, player }) {
               alignItems: "center",
             }}
           >
-            <Slide in direction="right" {...(true ? { timeout: 1500 } : {})}>
+            <Slide in direction="down" {...(true ? { timeout: 1500 } : {})}>
               <Box
                 component="img"
                 sx={{
-                  height: 90,
-                  width: 200,
+                  height: 100,
+                  width: 100,
                   filter: "hue-rotate(290deg)",
                 }}
                 alt=""
-                src="https://i.imgur.com/Hv4PMET.png"
+                src="https://i.pinimg.com/originals/30/0e/5c/300e5ca301ef3f7d05f856e3fa4bfd9e.png"
               />
             </Slide>
           </Box>

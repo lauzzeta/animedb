@@ -11,19 +11,26 @@ import {
   Grid,
 } from "@mui/material";
 import { GitHubIcon } from "../../components/atoms";
-import { Ranks, Search, Stats, User } from "../../components/organisms";
+import {
+  Ranks,
+  Results,
+  Search,
+  Stats,
+  User,
+} from "../../components/organisms";
 
 export default function Home() {
-  const [player, setPlayer] = useState();
-  const [error, setError] = useState(false);
-  const [stats, setStats] = useState();
-  const [ranks, setRanks] = useState();
+  const [results, setResults] = useState();
   const [loading, setLoading] = useState(false);
 
   return (
     <>
       <div className="overlay"></div>
-      <Container maxWidth="md" height="100vh" sx={{ pt: 2, pb: 4, minHeight:"100vh" }}>
+      <Container
+        maxWidth="md"
+        height="100vh"
+        sx={{ pt: 2, pb: 4, minHeight: "100vh" }}
+      >
         <Slide in direction="down" {...(true ? { timeout: 1000 } : {})}>
           <Card
             sx={{
@@ -51,7 +58,7 @@ export default function Home() {
                   sx={{ display: "flex", alignItems: "center", gap: ".5rem" }}
                 >
                   <img
-                    src="https://img.icons8.com/color/480/rocket-league.png"
+                    src="https://i.pinimg.com/originals/30/0e/5c/300e5ca301ef3f7d05f856e3fa4bfd9e.png"
                     alt=""
                     style={{ width: "35px", height: "35px" }}
                   />
@@ -59,7 +66,7 @@ export default function Home() {
                     color="white"
                     sx={{ fontWeight: "400", fontSize: "1.25rem" }}
                   >
-                    Rocket Stats
+                    Anime DB
                   </Typography>
                 </Box>
               }
@@ -80,17 +87,14 @@ export default function Home() {
             >
               <Grid container columnSpacing={2} rowSpacing={4}>
                 <Search
-                  setPlayer={setPlayer}
-                  error={error}
-                  setError={setError}
+                  setResults={setResults}
                   loading={loading}
                   setLoading={setLoading}
-                  setStats={setStats}
-                  setRanks={setRanks}
                 />
-                <User error={error} loading={loading} player={player} />
-                <Stats stats={stats} />
-                <Ranks ranks={ranks} />
+                <User loading={loading} />
+                <Results loading={loading} results={results} />
+                <Stats />
+                <Ranks />
               </Grid>
             </CardContent>
           </Card>

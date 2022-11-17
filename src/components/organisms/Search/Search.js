@@ -24,15 +24,7 @@ const platforms = [
   { name: "xbl", icon: <XboxIcon />, placeholder: "by GamerTag" },
 ];
 
-export default function Search({
-  setPlayer,
-  error,
-  setError,
-  loading,
-  setLoading,
-  setStats,
-  setRanks,
-}) {
+export default function Search({ setResults, loading, setLoading }) {
   const [selectedPlatform, setSelectedPlatform] = useState(platforms[0]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [userSearch, setUserSearch] = useState();
@@ -54,21 +46,11 @@ export default function Search({
   };
 
   const searchPlayer = async () => {
-    setError(false);
     setLoading(true);
-    const response = await getPlayer({
-      platform: selectedPlatform.name,
-      id: userSearch,
-    });
-    if (response.name === "TimeoutError") {
-      setError(true);
-      setLoading(false);
-    } else {
-      setPlayer(response.user);
-      setStats(response.stats);
-      setRanks(response.rank);
-      setLoading(false);
-    }
+    const response = await getPlayer(userSearch);
+    console.log(response);
+    setResults(response.data);
+    setLoading(false);
   };
 
   return (
@@ -105,16 +87,6 @@ export default function Search({
             }}
           >
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <IconButton
-                id="fade-button"
-                aria-controls={open ? "fade-menu" : undefined}
-                aria-haspopup="true"
-                aria-expanded={open ? "true" : undefined}
-                onClick={handleClick}
-                sx={{ color: "primary.main", mr: 1 }}
-              >
-                {selectedPlatform.icon}
-              </IconButton>
               <Menu
                 id="fade-menu"
                 MenuListProps={{
@@ -136,7 +108,7 @@ export default function Search({
                   </MenuItem>
                 ))}
               </Menu>
-              <Typography color="initial">{`Search player ${selectedPlatform.placeholder}`}</Typography>
+              <Typography color="initial">Search Anime</Typography>
             </Box>
             {selectedPlatform.name === "steam" && (
               <Box
