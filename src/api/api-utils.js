@@ -1,4 +1,4 @@
-const API_URL = "https://rocketstats.onrender.com";
+const API_URL = "https://rocketstats.herokuapp.com";
 
 export const post = async (route = "", body = {}) => {
   try {

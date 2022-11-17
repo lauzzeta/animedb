@@ -60,7 +60,6 @@ export default function Search({
       platform: selectedPlatform.name,
       id: userSearch,
     });
-    console.log(response);
     if (response.name === "TimeoutError") {
       setError(true);
       setLoading(false);
