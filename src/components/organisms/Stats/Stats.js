@@ -99,6 +99,7 @@ export default function Stats({ stats }) {
                           fontWeight: 600,
                           textDecoration: "underline",
                           textDecorationColor: "#5C2C6D",
+                          fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
                         }}
                       >
                         {el.stat}
@@ -107,6 +108,7 @@ export default function Stats({ stats }) {
                         color="#5C2C6D"
                         sx={{
                           fontWeight: 600,
+                          fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
                         }}
                       >
                         {el.value}

@@ -64,7 +64,6 @@ export default function Search({
       setError(true);
       setLoading(false);
     } else {
-      console.log(response);
       setPlayer(response.user);
       setStats(response.stats);
       setRanks(response.rank);
@@ -112,7 +111,7 @@ export default function Search({
                 aria-haspopup="true"
                 aria-expanded={open ? "true" : undefined}
                 onClick={handleClick}
-                sx={{ color: "primary.main" }}
+                sx={{ color: "primary.main", mr: 1 }}
               >
                 {selectedPlatform.icon}
               </IconButton>
