@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000";
+const API_URL = "https://rocketstats.onrender.com";
 
 export const post = async (route = "", body = {}) => {
   try {
