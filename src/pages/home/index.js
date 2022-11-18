@@ -67,7 +67,7 @@ export default function Home() {
                   />
                   <Typography
                     color="white"
-                    sx={{ fontWeight: "400", fontSize: "1.25rem" }}
+                    sx={{ fontWeight: "400", fontSize: "1.25rem", letterSpacing:".15rem" }}
                   >
                     Anime DB
                   </Typography>
@@ -88,29 +88,36 @@ export default function Home() {
                 // backgroundSize: "3rem 3rem",
               }}
             >
-              <Grid container columnSpacing={2} rowSpacing={4}>
-                <Search
-                  setResults={setResults}
-                  loading={loading}
-                  setLoading={setLoading}
-                  setAnimeId={setAnimeId}
-                  setAnimeSearch={setAnimeSearch}
-                />
-                <Anime
-                  loadingAnime={loadingAnime}
-                  animeSearch={animeSearch}
-                  animeId={animeId}
-                />
-                <Results
-                  loading={loading}
-                  results={results}
-                  setAnimeId={setAnimeId}
-                  animeId={animeId}
-                  setAnimeSearch={setAnimeSearch}
-                  setLoadingAnime={setLoadingAnime}
-                />
-                <AnimeData animeId={animeId} animeSearch={animeSearch} />
-                <Ranks />
+              <Grid container sx={{display:"flex", flexDirection:"column"}}>
+                <Grid container sx={{justifyContent:"space-between"}}>
+                  <Search
+                    setResults={setResults}
+                    loading={loading}
+                    setLoading={setLoading}
+                    setAnimeId={setAnimeId}
+                    setAnimeSearch={setAnimeSearch}
+                  />
+                  <Anime
+                    loadingAnime={loadingAnime}
+                    animeSearch={animeSearch}
+                    animeId={animeId}
+                  />
+                </Grid>
+                <Grid container sx={{display:"flex", mt:"2rem"}}>
+                  <Results
+                    loading={loading}
+                    results={results}
+                    setAnimeId={setAnimeId}
+                    animeId={animeId}
+                    setAnimeSearch={setAnimeSearch}
+                    setLoadingAnime={setLoadingAnime}
+                  /> 
+                </Grid>
+                <Grid container sx={{display:"flex", gap:"1rem"}}>
+                  <AnimeData animeId={animeId} animeSearch={animeSearch} />
+                  <Ranks />
+                </Grid>  
+                
               </Grid>
             </CardContent>
           </Card>

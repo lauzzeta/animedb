@@ -7,7 +7,7 @@ export default function Anime({ loadingAnime, animeSearch, animeId }) {
     <Grid
       item
       xs={12}
-      md={5}
+      sm={6}
       sx={{
         display: "flex",
         alignItems: "center",
@@ -51,8 +51,9 @@ export default function Anime({ loadingAnime, animeSearch, animeId }) {
               color="#300350"
               sx={{
                 fontWeight: 500,
-                fontSize: { xs: 14, sm: 15, md: 14, xl: 14 },
+                fontSize: { xs: 15, sm: 15, md: 16, xl: 17 },
                 textDecoration: "underline",
+                letterSpacing:".15rem",
                 textDecorationColor: "#5C2C6D",
                 textOverflow: "ellipsis",
                 whiteSpace: "nowrap",
@@ -95,7 +96,7 @@ export default function Anime({ loadingAnime, animeSearch, animeId }) {
                 "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
               backgroundSize: "2.5rem 2.5rem",
               backgroundColor: "transparent",
-              width: "100%",
+              width: "90%",
               height: "100%",
               display: "flex",
               justifyContent: "center",

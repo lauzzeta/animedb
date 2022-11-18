@@ -35,6 +35,7 @@ export const CustomTextField = styled(TextField)({
     color: theme.palette.secondary.main,
   },
   "& input": {
+    letterSpacing: ".15rem",
     color: "#3d0042",
   },
   "& label": {
@@ -69,11 +70,11 @@ export const ColorButton = styled(Button)(() => ({
 }));
 
 export const CustomCard = styled(Card)`
+  //se quito el transform: scale(1.04)
   ${({ theme }) => `
-
   &:hover {
-
-    transform: scale(1.04);
+    background-color: #457b9d66;
+    outline: 2px solid #a8dadc;
     cursor: pointer;
   }
   `}

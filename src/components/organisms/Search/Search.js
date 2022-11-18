@@ -30,11 +30,12 @@ export default function Search({
     setLoading(true);
     const response = await getResults(userSearch);
     setResults(response.data);
+    console.log(response.data);
     setLoading(false);
   };
 
   return (
-    <Grid item xs={12} md={7}>
+    <Grid item xs={12} sm={6}>
       <Card
         sx={{
           border: "0px solid #300350",
@@ -61,7 +62,7 @@ export default function Search({
               width: "100%",
             }}
           >
-            <Box sx={{ display: "flex", alignItems: "center" }}>
+            <Box sx={{ display: "flex", alignItems: "center", letterSpacing:".15rem" }}>
               <Typography color="#300350">Search Anime</Typography>
             </Box>
           </Box>
