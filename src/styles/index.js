@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { TextField, Button } from "@mui/material";
+import { TextField, Button, Card } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
@@ -67,3 +67,14 @@ export const ColorButton = styled(Button)(() => ({
     backgroundColor: theme.palette.primary.light,
   },
 }));
+
+export const CustomCard = styled(Card)`
+  ${({ theme }) => `
+
+  &:hover {
+
+    transform: scale(1.04);
+    cursor: pointer;
+  }
+  `}
+`;

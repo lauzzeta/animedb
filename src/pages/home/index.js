@@ -12,15 +12,18 @@ import {
 } from "@mui/material";
 import { GitHubIcon } from "../../components/atoms";
 import {
+  Anime,
   Ranks,
   Results,
   Search,
   Stats,
-  User,
 } from "../../components/organisms";
 
 export default function Home() {
   const [results, setResults] = useState();
+  const [animeId, setAnimeId] = useState(null);
+  const [animeSearch, setAnimeSearch] = useState();
+  const [loadingAnime, setLoadingAnime] = useState(false);
   const [loading, setLoading] = useState(false);
 
   return (
@@ -90,9 +93,17 @@ export default function Home() {
                   setResults={setResults}
                   loading={loading}
                   setLoading={setLoading}
+                  setAnimeId={setAnimeId}
                 />
-                <User loading={loading} />
-                <Results loading={loading} results={results} />
+                <Anime loadingAnime={loadingAnime} animeSearch={animeSearch} />
+                <Results
+                  loading={loading}
+                  results={results}
+                  setAnimeId={setAnimeId}
+                  animeId={animeId}
+                  setAnimeSearch={setAnimeSearch}
+                  setLoadingAnime={setLoadingAnime}
+                />
                 <Stats />
                 <Ranks />
               </Grid>

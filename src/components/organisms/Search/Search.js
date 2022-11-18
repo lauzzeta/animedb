@@ -15,7 +15,7 @@ import { EpicIcon, PSNIcon, SteamIcon, XboxIcon } from "../../atoms";
 import { CustomTextField } from "../../../styles";
 import SearchIcon from "@mui/icons-material/Search";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
-import { getPlayer } from "../../../api";
+import { getResults } from "../../../api";
 
 const platforms = [
   { name: "steam", icon: <SteamIcon />, placeholder: "by SteamID" },
@@ -24,14 +24,17 @@ const platforms = [
   { name: "xbl", icon: <XboxIcon />, placeholder: "by GamerTag" },
 ];
 
-export default function Search({ setResults, loading, setLoading }) {
+export default function Search({
+  setResults,
+  loading,
+  setLoading,
+  setAnimeId,
+}) {
   const [selectedPlatform, setSelectedPlatform] = useState(platforms[0]);
   const [anchorEl, setAnchorEl] = useState(null);
   const [userSearch, setUserSearch] = useState();
   const open = Boolean(anchorEl);
-  const handleClick = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
@@ -45,10 +48,10 @@ export default function Search({ setResults, loading, setLoading }) {
     setAnchorEl(null);
   };
 
-  const searchPlayer = async () => {
+  const searchAnime = async () => {
+    setAnimeId(null);
     setLoading(true);
-    const response = await getPlayer(userSearch);
-    console.log(response);
+    const response = await getResults(userSearch);
     setResults(response.data);
     setLoading(false);
   };
@@ -141,7 +144,7 @@ export default function Search({ setResults, loading, setLoading }) {
                 <IconButton
                   sx={{ marginLeft: ".6rem", mb: 1 }}
                   onClick={() => {
-                    searchPlayer();
+                    searchAnime();
                   }}
                 >
                   <SearchIcon sx={{ color: "#300350" }} />

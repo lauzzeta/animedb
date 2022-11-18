@@ -11,8 +11,25 @@ import {
   Card,
   CardMedia,
 } from "@mui/material";
+import { CustomCard } from "../../../styles";
+import { getFullAnime } from "../../../api";
 
-export default function Results({ loading, results }) {
+export default function Results({
+  loading,
+  results,
+  setAnimeId,
+  animeId,
+  setAnimeSearch,
+  setLoadingAnime,
+}) {
+  const setAnime = async (id) => {
+    setLoadingAnime(true);
+    setAnimeId(id);
+    const anime = await getFullAnime(id);
+    setAnimeSearch(anime.data);
+    setLoadingAnime(false);
+  };
+
   return loading ? (
     <Grid
       item
@@ -29,6 +46,7 @@ export default function Results({ loading, results }) {
     </Grid>
   ) : (
     results &&
+      !animeId &&
       results?.map((el) => (
         <Grid
           item
@@ -41,7 +59,7 @@ export default function Results({ loading, results }) {
             gap: 2,
           }}
         >
-          <Card
+          <CustomCard
             sx={{
               border: "0px solid #300350",
               borderRadius: 0,
@@ -49,6 +67,9 @@ export default function Results({ loading, results }) {
               borderRight: "2px solid #300350",
               borderLeft: "2px solid #300350",
               borderBottom: "2px solid #300350",
+            }}
+            onClick={() => {
+              setAnime(el.mal_id);
             }}
           >
             <CardHeader
@@ -70,7 +91,7 @@ export default function Results({ loading, results }) {
               }}
               image={el.images.jpg.large_image_url}
             />
-          </Card>
+          </CustomCard>
         </Grid>
       ))
   );

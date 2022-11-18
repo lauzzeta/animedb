@@ -9,7 +9,7 @@ import {
   Grow,
 } from "@mui/material";
 
-export default function User({ error, loading, player }) {
+export default function Anime({ loadingAnime, animeSearch }) {
   return (
     <Grid
       item
@@ -22,7 +22,9 @@ export default function User({ error, loading, player }) {
         gap: 2,
       }}
     >
-      {player?.image ? (
+      {loadingAnime ? (
+        <CircularProgress color="primary" />
+      ) : animeSearch ? (
         <>
           <Box
             component="img"
@@ -32,7 +34,7 @@ export default function User({ error, loading, player }) {
               width: 100,
             }}
             alt=""
-            src={player?.image}
+            src={animeSearch?.images.jpg.large_image_url}
           />
           <Box
             sx={{
@@ -58,7 +60,7 @@ export default function User({ error, loading, player }) {
                 width: "100%",
               }}
             >
-              {player?.name}
+              {animeSearch?.title}
             </Typography>
             <Typography
               color="#300350"
@@ -67,7 +69,7 @@ export default function User({ error, loading, player }) {
                 fontSize: { xs: 12, sm: 12, md: 12, xl: 12 },
               }}
             >
-              Reward level:
+              Aired:
             </Typography>
             <Box
               sx={{
@@ -76,15 +78,6 @@ export default function User({ error, loading, player }) {
                 gap: ".5rem",
               }}
             >
-              <Avatar
-                src={player?.reward.icon}
-                alt="rank logo"
-                sx={{
-                  width: 40,
-                  height: 40,
-                  filter: "drop-shadow(-3px 2px 0px #5C2C6D)",
-                }}
-              />
               <Typography
                 color="#300350"
                 sx={{
@@ -92,44 +85,46 @@ export default function User({ error, loading, player }) {
                   fontSize: { xs: 13, sm: 15, md: 11, xl: 11 },
                 }}
               >
-                {player?.reward.level}
+                {animeSearch?.aired.string}
               </Typography>
             </Box>
           </Box>
         </>
       ) : (
-        <Grow
-          in
-          style={{ transformOrigin: "0 0 0" }}
-          {...(true ? { timeout: 1000 } : {})}
-        >
-          <Box
-            sx={{
-              backgroundImage:
-                "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
-              backgroundSize: "2.5rem 2.5rem",
-              backgroundColor: "transparent",
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
+        !animeSearch && (
+          <Grow
+            in
+            style={{ transformOrigin: "0 0 0" }}
+            {...(true ? { timeout: 1000 } : {})}
           >
-            <Slide in direction="down" {...(true ? { timeout: 1500 } : {})}>
-              <Box
-                component="img"
-                sx={{
-                  height: 100,
-                  width: 100,
-                  filter: "hue-rotate(290deg)",
-                }}
-                alt=""
-                src="https://i.pinimg.com/originals/30/0e/5c/300e5ca301ef3f7d05f856e3fa4bfd9e.png"
-              />
-            </Slide>
-          </Box>
-        </Grow>
+            <Box
+              sx={{
+                backgroundImage:
+                  "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
+                backgroundSize: "2.5rem 2.5rem",
+                backgroundColor: "transparent",
+                width: "100%",
+                height: "100%",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Slide in direction="down" {...(true ? { timeout: 1500 } : {})}>
+                <Box
+                  component="img"
+                  sx={{
+                    height: 100,
+                    width: 100,
+                    filter: "hue-rotate(290deg)",
+                  }}
+                  alt=""
+                  src="https://i.pinimg.com/originals/30/0e/5c/300e5ca301ef3f7d05f856e3fa4bfd9e.png"
+                />
+              </Slide>
+            </Box>
+          </Grow>
+        )
       )}
     </Grid>
   );
