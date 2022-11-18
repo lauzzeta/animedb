@@ -9,6 +9,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   Grid,
+  CardMedia,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
@@ -72,7 +73,12 @@ export default function AnimeData({ animeId, animeSearch }) {
                 Synopsis
               </Typography>
             </AccordionSummary>
-            <AccordionDetails>
+            <AccordionDetails
+              sx={{
+                borderRadius: 0,
+                borderTop: "2px solid #300350",
+              }}
+            >
               <Typography
                 color="#300350"
                 sx={{
@@ -290,9 +296,385 @@ export default function AnimeData({ animeId, animeSearch }) {
                     </Typography>
                   </Box>
                 </Grid>
+                <Grid item xs={4} sm={2} md={2} xl={2}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                  >
+                    {/* <Avatar
+                        src={statsImage[i]?.icon}
+                        sx={{
+                          width: 45,
+                          height: 45,
+                          filter: "drop-shadow(-3px 2px 0px #5C2C6D)",
+                        }}
+                      /> */}
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        textDecorationColor: "#5C2C6D",
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      Demographic
+                    </Typography>
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      {animeSearch?.demographics[0]?.name}
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={4} sm={2} md={2} xl={2}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                  >
+                    {/* <Avatar
+                        src={statsImage[i]?.icon}
+                        sx={{
+                          width: 45,
+                          height: 45,
+                          filter: "drop-shadow(-3px 2px 0px #5C2C6D)",
+                        }}
+                      /> */}
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        textDecorationColor: "#5C2C6D",
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      Duration
+                    </Typography>
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      {animeSearch?.duration}
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={4} sm={2} md={2} xl={2}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                  >
+                    {/* <Avatar
+                        src={statsImage[i]?.icon}
+                        sx={{
+                          width: 45,
+                          height: 45,
+                          filter: "drop-shadow(-3px 2px 0px #5C2C6D)",
+                        }}
+                      /> */}
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        textDecorationColor: "#5C2C6D",
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      Season
+                    </Typography>
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      {animeSearch?.season}
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={4} sm={2} md={2} xl={2}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                  >
+                    {/* <Avatar
+                        src={statsImage[i]?.icon}
+                        sx={{
+                          width: 45,
+                          height: 45,
+                          filter: "drop-shadow(-3px 2px 0px #5C2C6D)",
+                        }}
+                      /> */}
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        textDecorationColor: "#5C2C6D",
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      Source
+                    </Typography>
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      {animeSearch?.source}
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={4} sm={2} md={2} xl={2}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                  >
+                    {/* <Avatar
+                        src={statsImage[i]?.icon}
+                        sx={{
+                          width: 45,
+                          height: 45,
+                          filter: "drop-shadow(-3px 2px 0px #5C2C6D)",
+                        }}
+                      /> */}
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        textDecorationColor: "#5C2C6D",
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      Aired
+                    </Typography>
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      From {animeSearch?.aired?.string}
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={4} sm={2} md={2} xl={2}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                  >
+                    {/* <Avatar
+                        src={statsImage[i]?.icon}
+                        sx={{
+                          width: 45,
+                          height: 45,
+                          filter: "drop-shadow(-3px 2px 0px #5C2C6D)",
+                        }}
+                      /> */}
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        textDecorationColor: "#5C2C6D",
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      Year
+                    </Typography>
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      {animeSearch?.year}
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={4} sm={2} md={2} xl={2}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                  >
+                    {/* <Avatar
+                        src={statsImage[i]?.icon}
+                        sx={{
+                          width: 45,
+                          height: 45,
+                          filter: "drop-shadow(-3px 2px 0px #5C2C6D)",
+                        }}
+                      /> */}
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        textDecorationColor: "#5C2C6D",
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      Broadcast
+                    </Typography>
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      {animeSearch?.broadcast?.string}
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={4} sm={2} md={2} xl={2}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                  >
+                    {/* <Avatar
+                        src={statsImage[i]?.icon}
+                        sx={{
+                          width: 45,
+                          height: 45,
+                          filter: "drop-shadow(-3px 2px 0px #5C2C6D)",
+                        }}
+                      /> */}
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        textDecorationColor: "#5C2C6D",
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      Rating
+                    </Typography>
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      {animeSearch?.rating}
+                    </Typography>
+                  </Box>
+                </Grid>
+                <Grid item xs={4} sm={2} md={2} xl={2}>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      textAlign: "center",
+                    }}
+                  >
+                    {/* <Avatar
+                        src={statsImage[i]?.icon}
+                        sx={{
+                          width: 45,
+                          height: 45,
+                          filter: "drop-shadow(-3px 2px 0px #5C2C6D)",
+                        }}
+                      /> */}
+                    <Typography
+                      color="#5C2C6D"
+                      sx={{
+                        fontWeight: 600,
+                        textDecoration: "underline",
+                        textDecorationColor: "#5C2C6D",
+                        fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                      }}
+                    >
+                      Streaming Platforms
+                    </Typography>
+
+                    {animeSearch?.streaming?.map((el) => (
+                      <Typography
+                        color="#5C2C6D"
+                        sx={{
+                          fontWeight: 600,
+                          fontSize: { xs: 15, sm: 14, md: 15, xl: 15 },
+                        }}
+                      >
+                        {el.name}
+                      </Typography>
+                    ))}
+                  </Box>
+                </Grid>
               </Grid>
             </CardContent>
           </Card>
+          {animeSearch?.trailer?.embed_url && (
+            <Grid item xs={6}>
+              <Card
+                sx={{
+                  mt: 2,
+                  display: "flex",
+                  height: 230,
+                  border: "0px solid #300350",
+                  borderRadius: 0,
+                  borderTop: "2px solid #300350",
+                  borderRight: "2px solid #300350",
+                  borderLeft: "2px solid #300350",
+                  borderBottom: "2px solid #300350",
+                }}
+              >
+                <CardMedia
+                  component="iframe"
+                  src={animeSearch?.trailer?.embed_url}
+                />
+              </Card>
+            </Grid>
+          )}
         </Grid>
       </>
     )
