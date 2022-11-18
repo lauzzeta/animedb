@@ -16,7 +16,7 @@ import {
   Ranks,
   Results,
   Search,
-  Stats,
+  AnimeData,
 } from "../../components/organisms";
 
 export default function Home() {
@@ -94,8 +94,13 @@ export default function Home() {
                   loading={loading}
                   setLoading={setLoading}
                   setAnimeId={setAnimeId}
+                  setAnimeSearch={setAnimeSearch}
                 />
-                <Anime loadingAnime={loadingAnime} animeSearch={animeSearch} />
+                <Anime
+                  loadingAnime={loadingAnime}
+                  animeSearch={animeSearch}
+                  animeId={animeId}
+                />
                 <Results
                   loading={loading}
                   results={results}
@@ -104,7 +109,7 @@ export default function Home() {
                   setAnimeSearch={setAnimeSearch}
                   setLoadingAnime={setLoadingAnime}
                 />
-                <Stats />
+                <AnimeData animeId={animeId} animeSearch={animeSearch} />
                 <Ranks />
               </Grid>
             </CardContent>

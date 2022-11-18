@@ -1,16 +1,5 @@
 import React from "react";
-import {
-  Box,
-  Typography,
-  CircularProgress,
-  Grid,
-  Avatar,
-  Slide,
-  Grow,
-  CardHeader,
-  Card,
-  CardMedia,
-} from "@mui/material";
+import { CircularProgress, Grid, CardHeader, CardMedia } from "@mui/material";
 import { CustomCard } from "../../../styles";
 import { getFullAnime } from "../../../api";
 
@@ -27,6 +16,7 @@ export default function Results({
     setAnimeId(id);
     const anime = await getFullAnime(id);
     setAnimeSearch(anime.data);
+    console.log(anime);
     setLoadingAnime(false);
   };
 

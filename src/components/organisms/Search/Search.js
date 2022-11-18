@@ -3,53 +3,30 @@ import {
   Box,
   Typography,
   IconButton,
-  Menu,
-  MenuItem,
   Card,
   CardContent,
   Grid,
-  Tooltip,
-  Fade,
 } from "@mui/material";
-import { EpicIcon, PSNIcon, SteamIcon, XboxIcon } from "../../atoms";
 import { CustomTextField } from "../../../styles";
 import SearchIcon from "@mui/icons-material/Search";
-import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { getResults } from "../../../api";
-
-const platforms = [
-  { name: "steam", icon: <SteamIcon />, placeholder: "by SteamID" },
-  { name: "psn", icon: <PSNIcon />, placeholder: "by PSN ID" },
-  { name: "epic", icon: <EpicIcon />, placeholder: "by Name" },
-  { name: "xbl", icon: <XboxIcon />, placeholder: "by GamerTag" },
-];
 
 export default function Search({
   setResults,
   loading,
   setLoading,
   setAnimeId,
+  setAnimeSearch,
 }) {
-  const [selectedPlatform, setSelectedPlatform] = useState(platforms[0]);
-  const [anchorEl, setAnchorEl] = useState(null);
   const [userSearch, setUserSearch] = useState();
-  const open = Boolean(anchorEl);
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
 
   const handleChange = (e) => {
     setUserSearch(e.target.value);
   };
 
-  const handleSelect = (i) => {
-    setSelectedPlatform(platforms[i]);
-    setAnchorEl(null);
-  };
-
   const searchAnime = async () => {
     setAnimeId(null);
+    setAnimeSearch(null);
     setLoading(true);
     const response = await getResults(userSearch);
     setResults(response.data);
@@ -74,11 +51,6 @@ export default function Search({
             justifyContent: "center",
             alignItems: "center",
             flexDirection: "column",
-
-            // background: "white",
-            // backgroundImage:
-            //   "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
-            // backgroundSize: "3em 3em",
           }}
         >
           <Box
@@ -90,46 +62,8 @@ export default function Search({
             }}
           >
             <Box sx={{ display: "flex", alignItems: "center" }}>
-              <Menu
-                id="fade-menu"
-                MenuListProps={{
-                  "aria-labelledby": "fade-button",
-                }}
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                TransitionComponent={Fade}
-              >
-                {platforms.map((el, i) => (
-                  <MenuItem
-                    key={i}
-                    onClick={() => {
-                      handleSelect(i);
-                    }}
-                  >
-                    {el.icon}
-                  </MenuItem>
-                ))}
-              </Menu>
-              <Typography color="initial">Search Anime</Typography>
+              <Typography color="#300350">Search Anime</Typography>
             </Box>
-            {selectedPlatform.name === "steam" && (
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
-                <Tooltip title="How can I find my SteamID?" disableInteractive>
-                  <IconButton
-                    href="https://help.steampowered.com/en/faqs/view/2816-BE67-5B69-0FEC"
-                    target="_blank"
-                  >
-                    <HelpOutlineIcon sx={{ color: "#300350" }} />
-                  </IconButton>
-                </Tooltip>
-              </Box>
-            )}
           </Box>
 
           <CustomTextField
