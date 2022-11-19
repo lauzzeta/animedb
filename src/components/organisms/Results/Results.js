@@ -1,7 +1,8 @@
 import React from "react";
-import { CircularProgress, Grid, CardHeader, CardMedia, CardActions, Button, Box, Typography } from "@mui/material";
+import { Grid, CardMedia, Typography } from "@mui/material";
 import { CustomCard } from "../../../styles";
 import { getFullAnime } from "../../../api";
+import { Loading } from "../../molecules";
 
 export default function Results({
   loading,
@@ -21,18 +22,7 @@ export default function Results({
   };
 
   return loading ? (
-    <Grid
-      item
-      xs={12}
-      md={12}
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center"
-      }}
-    >
-      <CircularProgress color="primary" />
-    </Grid>
+    <Loading />
   ) : (
     results &&
       !animeId &&
@@ -44,27 +34,27 @@ export default function Results({
           sx={{
             display: "flex",
             alignItems: "center",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
           <CustomCard
             sx={{
-              width:"190px",
-              height:"220px",
-              backgroundColor:"transparent",
-              my:"1rem",
+              width: "190px",
+              height: "220px",
+              backgroundColor: "transparent",
+              my: "1rem",
               border: "0px solid #300350",
-              boxShadow:"0",
-              padding:".5rem",
+              boxShadow: "0",
+              padding: ".5rem",
               borderRadius: 0,
               // borderTop: "2px solid #300350",
               // borderRight: "2px solid #300350",
               // borderLeft: "2px solid #300350",
               // borderBottom: "2px solid #300350",
-              display:"flex",
-              flexDirection:"column",
-              justifyContent:"center", 
-              alignItems:"center"
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
             }}
             onClick={() => {
               setAnime(el.mal_id);
@@ -90,15 +80,19 @@ export default function Results({
               image={el.images.jpg.large_image_url}
             />
             {/* <Box style={{backgroundColor:"none", maxWidth:"100%", marginTop:".5rem", display"}}> */}
-              <Typography sx={{
-                maxHeight:"1rem",
-                textAlign:"center",
-                letterSpacing:".15rem",
+            <Typography
+              sx={{
+                maxHeight: "1rem",
+                textAlign: "center",
+                letterSpacing: ".15rem",
                 textOverflow: "ellipsis",
                 whiteSpace: "wrap",
-                fontSize:".79rem", 
-                marginTop:".5rem"}}
-                >{el.title}.exe</Typography>
+                fontSize: ".79rem",
+                marginTop: ".5rem",
+              }}
+            >
+              {el.title}
+            </Typography>
             {/* </Box> */}
           </CustomCard>
         </Grid>

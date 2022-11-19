@@ -1,5 +1,5 @@
 import { styled } from "@mui/material/styles";
-import { TextField, Button, Card } from "@mui/material";
+import { TextField, Button, Card, Accordion } from "@mui/material";
 import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
@@ -79,3 +79,12 @@ export const CustomCard = styled(Card)`
   }
   `}
 `;
+
+export const CustomizedAccordion = styled(Accordion)(() => ({
+  border: "0px solid #300350",
+  borderTop: "2px solid #300350",
+  borderRight: "2px solid #300350",
+  borderLeft: "2px solid #300350",
+  borderBottom: "2px solid #300350",
+  boxShadow: "none",
+}));

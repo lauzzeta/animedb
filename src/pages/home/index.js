@@ -11,13 +11,8 @@ import {
   Grid,
 } from "@mui/material";
 import { GitHubIcon } from "../../components/atoms";
-import {
-  Anime,
-  Ranks,
-  Results,
-  Search,
-  AnimeData,
-} from "../../components/organisms";
+import { Anime, Ranks, Results, Search } from "../../components/organisms";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 
 export default function Home() {
   const [results, setResults] = useState();
@@ -57,21 +52,50 @@ export default function Home() {
                 </IconButton>
               }
               title={
-                <Box
-                  sx={{ display: "flex", alignItems: "center", gap: ".5rem" }}
-                >
-                  <img
-                    src="https://i.pinimg.com/originals/30/0e/5c/300e5ca301ef3f7d05f856e3fa4bfd9e.png"
-                    alt=""
-                    style={{ width: "35px", height: "35px" }}
-                  />
-                  <Typography
-                    color="white"
-                    sx={{ fontWeight: "400", fontSize: "1.25rem", letterSpacing:".15rem" }}
+                animeId ? (
+                  <Box
+                    sx={{ display: "flex", alignItems: "center", gap: ".5rem" }}
                   >
-                    Anime DB
-                  </Typography>
-                </Box>
+                    <IconButton
+                      sx={{ p: 0 }}
+                      onClick={() => {
+                        setAnimeId(null);
+                      }}
+                    >
+                      <ArrowBackIcon sx={{ color: "white" }} />
+                    </IconButton>
+                    <Typography
+                      color="white"
+                      sx={{
+                        fontWeight: "400",
+                        fontSize: "1.25rem",
+                        letterSpacing: ".15rem",
+                      }}
+                    >
+                      Anime DB
+                    </Typography>
+                  </Box>
+                ) : (
+                  <Box
+                    sx={{ display: "flex", alignItems: "center", gap: ".5rem" }}
+                  >
+                    <img
+                      src="https://i.pinimg.com/originals/30/0e/5c/300e5ca301ef3f7d05f856e3fa4bfd9e.png"
+                      alt=""
+                      style={{ width: "35px", height: "35px" }}
+                    />
+                    <Typography
+                      color="white"
+                      sx={{
+                        fontWeight: "400",
+                        fontSize: "1.25rem",
+                        letterSpacing: ".15rem",
+                      }}
+                    >
+                      Anime DB
+                    </Typography>
+                  </Box>
+                )
               }
             />
             <CardContent
@@ -88,14 +112,18 @@ export default function Home() {
                 // backgroundSize: "3rem 3rem",
               }}
             >
-              <Grid container sx={{display:"flex", flexDirection:"column"}}>
-                <Grid container sx={{justifyContent:"space-between"}}>
+              <Grid container sx={{ display: "flex", flexDirection: "column" }}>
+                <Grid
+                  container
+                  sx={{ justifyContent: "space-between" }}
+                  spacing={2}
+                >
                   <Search
                     setResults={setResults}
-                    loading={loading}
                     setLoading={setLoading}
                     setAnimeId={setAnimeId}
                     setAnimeSearch={setAnimeSearch}
+                    animeId={animeId}
                   />
                   <Anime
                     loadingAnime={loadingAnime}
@@ -103,7 +131,7 @@ export default function Home() {
                     animeId={animeId}
                   />
                 </Grid>
-                <Grid container sx={{display:"flex", mt:"2rem"}}>
+                <Grid container sx={{ display: "flex" }}>
                   <Results
                     loading={loading}
                     results={results}
@@ -111,13 +139,11 @@ export default function Home() {
                     animeId={animeId}
                     setAnimeSearch={setAnimeSearch}
                     setLoadingAnime={setLoadingAnime}
-                  /> 
+                  />
                 </Grid>
-                <Grid container sx={{display:"flex", gap:"1rem"}}>
-                  <AnimeData animeId={animeId} animeSearch={animeSearch} />
+                <Grid container sx={{ display: "flex", gap: "1rem" }}>
                   <Ranks />
-                </Grid>  
-                
+                </Grid>
               </Grid>
             </CardContent>
           </Card>

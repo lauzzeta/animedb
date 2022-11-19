@@ -13,9 +13,9 @@ import { getResults } from "../../../api";
 
 export default function Search({
   setResults,
-  loading,
   setLoading,
   setAnimeId,
+  animeId,
   setAnimeSearch,
 }) {
   const [userSearch, setUserSearch] = useState();
@@ -35,60 +35,69 @@ export default function Search({
   };
 
   return (
-    <Grid item xs={12} sm={6}>
-      <Card
-        sx={{
-          border: "0px solid #300350",
-          borderRadius: 0,
-          borderTop: "2px solid #300350",
-          borderRight: "2px solid #300350",
-          borderLeft: "2px solid #300350",
-          borderBottom: "2px solid #300350",
-        }}
-      >
-        <CardContent
+    !animeId && (
+      <Grid item xs={12} sm={6}>
+        <Card
           sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
+            border: "0px solid #300350",
+            borderRadius: 0,
+            borderTop: "2px solid #300350",
+            borderRight: "2px solid #300350",
+            borderLeft: "2px solid #300350",
+            borderBottom: "2px solid #300350",
           }}
         >
-          <Box
+          <CardContent
             sx={{
               display: "flex",
-              justifyContent: "space-between",
+              justifyContent: "center",
               alignItems: "center",
-              width: "100%",
+              flexDirection: "column",
             }}
           >
-            <Box sx={{ display: "flex", alignItems: "center", letterSpacing:".15rem" }}>
-              <Typography color="#300350">Search Anime</Typography>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  letterSpacing: ".15rem",
+                }}
+              >
+                <Typography color="#300350">Search Anime</Typography>
+              </Box>
             </Box>
-          </Box>
 
-          <CustomTextField
-            fullWidth
-            autoFocus
-            id="outlined-basic"
-            variant="standard"
-            placeholder={`Type here...`}
-            onChange={handleChange}
-            InputProps={{
-              endAdornment: (
-                <IconButton
-                  sx={{ marginLeft: ".6rem", mb: 1 }}
-                  onClick={() => {
-                    searchAnime();
-                  }}
-                >
-                  <SearchIcon sx={{ color: "#300350" }} />
-                </IconButton>
-              ),
-            }}
-          />
-        </CardContent>
-      </Card>
-    </Grid>
+            <CustomTextField
+              fullWidth
+              autoFocus
+              id="outlined-basic"
+              variant="standard"
+              defaultValue={userSearch}
+              placeholder={`Type here...`}
+              onChange={handleChange}
+              InputProps={{
+                endAdornment: (
+                  <IconButton
+                    sx={{ marginLeft: ".6rem", mb: 1 }}
+                    onClick={() => {
+                      searchAnime();
+                    }}
+                  >
+                    <SearchIcon sx={{ color: "#300350" }} />
+                  </IconButton>
+                ),
+              }}
+            />
+          </CardContent>
+        </Card>
+      </Grid>
+    )
   );
 }
