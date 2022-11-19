@@ -17,7 +17,6 @@ export default function Results({
     setAnimeId(id);
     const anime = await getFullAnime(id);
     setAnimeSearch(anime.data);
-    console.log(anime);
     setLoadingAnime(false);
   };
 
@@ -26,7 +25,7 @@ export default function Results({
   ) : (
     results &&
       !animeId &&
-      results?.map((el) => (
+      results?.map((el, i) => (
         <Grid
           item
           xs={6}
@@ -36,6 +35,7 @@ export default function Results({
             alignItems: "center",
             justifyContent: "center",
           }}
+          key={i}
         >
           <CustomCard
             sx={{

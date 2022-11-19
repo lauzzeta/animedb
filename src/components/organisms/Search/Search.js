@@ -30,7 +30,6 @@ export default function Search({
     setLoading(true);
     const response = await getResults(userSearch);
     setResults(response.data);
-    console.log(response.data);
     setLoading(false);
   };
 
@@ -75,6 +74,11 @@ export default function Search({
             </Box>
 
             <CustomTextField
+              onKeyDown={(e) => {
+                if (e.keyCode === 13) {
+                  searchAnime();
+                }
+              }}
               fullWidth
               autoFocus
               id="outlined-basic"

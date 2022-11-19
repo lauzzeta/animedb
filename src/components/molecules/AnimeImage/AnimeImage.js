@@ -6,7 +6,7 @@ export default function AnimeImage({ image }) {
     <Grid
       item
       xs={12}
-      sm={4}
+      sm={5}
       md={4}
       display="flex"
       justifyContent="center"
