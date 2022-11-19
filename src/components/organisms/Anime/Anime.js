@@ -5,6 +5,7 @@ import {
   AnimeData,
   MainImage,
   Synopsis,
+  Genres,
 } from "../../molecules";
 
 export default function Anime({ loadingAnime, animeSearch, animeId }) {
@@ -14,6 +15,7 @@ export default function Anime({ loadingAnime, animeSearch, animeId }) {
     <>
       <AnimeImage image={animeSearch?.images?.jpg?.large_image_url} />
       <AnimeData data={animeSearch} />
+      <Genres genres={animeSearch?.genres} />
       <Synopsis synopsis={animeSearch?.synopsis} />
     </>
   ) : (

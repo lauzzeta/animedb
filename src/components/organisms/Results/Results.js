@@ -17,6 +17,7 @@ export default function Results({
     setAnimeId(id);
     const anime = await getFullAnime(id);
     setAnimeSearch(anime.data);
+    console.log(anime);
     setLoadingAnime(false);
   };
 
