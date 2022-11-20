@@ -18,6 +18,7 @@ export default function Home() {
   const [results, setResults] = useState();
   const [animeId, setAnimeId] = useState(null);
   const [animeSearch, setAnimeSearch] = useState();
+  const [characters, setCharacters] = useState();
   const [loadingAnime, setLoadingAnime] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -129,6 +130,7 @@ export default function Home() {
                     loadingAnime={loadingAnime}
                     animeSearch={animeSearch}
                     animeId={animeId}
+                    characters={characters}
                   />
                 </Grid>
                 <Grid container sx={{ display: "flex" }}>
@@ -139,6 +141,7 @@ export default function Home() {
                     animeId={animeId}
                     setAnimeSearch={setAnimeSearch}
                     setLoadingAnime={setLoadingAnime}
+                    setCharacters={setCharacters}
                   />
                 </Grid>
                 <Grid container sx={{ display: "flex", gap: "1rem" }}>

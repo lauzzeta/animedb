@@ -4,3 +4,4 @@ export { default as AnimeData } from "./AnimeData";
 export { default as MainImage } from "./MainImage";
 export { default as Synopsis } from "./Synopsis";
 export { default as Genres } from "./Genres";
+export { default as Characters } from "./Characters";

@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, CardMedia, Typography } from "@mui/material";
 import { CustomCard } from "../../../styles";
-import { getFullAnime } from "../../../api";
+import { getCharacters, getFullAnime } from "../../../api";
 import { Loading } from "../../molecules";
 
 export default function Results({
@@ -11,13 +11,17 @@ export default function Results({
   animeId,
   setAnimeSearch,
   setLoadingAnime,
+  setCharacters,
 }) {
   const setAnime = async (id) => {
     setLoadingAnime(true);
     setAnimeId(id);
     const anime = await getFullAnime(id);
+    const characters = await getCharacters(id);
+    setCharacters(characters.data);
     setAnimeSearch(anime.data);
     console.log(anime);
+    console.log(characters.data);
     setLoadingAnime(false);
   };
 

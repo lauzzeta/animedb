@@ -5,3 +5,6 @@ export const getResults = async (id) =>
 
 export const getFullAnime = async (id) =>
   get(`https://api.jikan.moe/v4/anime/${id}/full`);
+
+export const getCharacters = async (id) =>
+  get(`https://api.jikan.moe/v4/anime/${id}/characters`);
