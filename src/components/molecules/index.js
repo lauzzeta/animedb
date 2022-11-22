@@ -5,3 +5,5 @@ export { default as MainImage } from "./MainImage";
 export { default as Synopsis } from "./Synopsis";
 export { default as Genres } from "./Genres";
 export { default as Characters } from "./Characters";
+export { default as Trailer } from "./Trailer";
+export { default as Platforms } from "./Platforms";

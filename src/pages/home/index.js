@@ -10,9 +10,10 @@ import {
   CardContent,
   Grid,
 } from "@mui/material";
-import { GitHubIcon } from "../../components/atoms";
-import { Anime, Ranks, Results, Search } from "../../components/organisms";
+import { Anime, Results, Search } from "../../components/organisms";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import HomeIcon from "@mui/icons-material/Home";
+import GitHubIcon from "@mui/icons-material/GitHub";
 
 export default function Home() {
   const [results, setResults] = useState();
@@ -24,7 +25,6 @@ export default function Home() {
 
   return (
     <>
-      <div className="overlay"></div>
       <Container
         maxWidth="md"
         height="100vh"
@@ -41,15 +41,17 @@ export default function Home() {
             <CardHeader
               style={{
                 background: "#FF019A",
-                // GRADIENTE COMO DIV DE DENTRO background: "-webkit-linear-gradient(180deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%)",
                 border: "2px solid #5C2C6D",
                 display: "flex",
                 alignItems: "center",
                 padding: ".5rem 1rem",
               }}
               action={
-                <IconButton size="medium">
-                  <GitHubIcon />
+                <IconButton
+                  href="https://github.com/lauzzeta/animedb"
+                  target="_blank"
+                >
+                  <GitHubIcon sx={{ color: "white" }} />
                 </IconButton>
               }
               title={
@@ -58,7 +60,6 @@ export default function Home() {
                     sx={{ display: "flex", alignItems: "center", gap: ".5rem" }}
                   >
                     <IconButton
-                      sx={{ p: 0 }}
                       onClick={() => {
                         setAnimeId(null);
                       }}
@@ -80,11 +81,7 @@ export default function Home() {
                   <Box
                     sx={{ display: "flex", alignItems: "center", gap: ".5rem" }}
                   >
-                    <img
-                      src="https://i.pinimg.com/originals/30/0e/5c/300e5ca301ef3f7d05f856e3fa4bfd9e.png"
-                      alt=""
-                      style={{ width: "35px", height: "35px" }}
-                    />
+                    <HomeIcon sx={{ color: "white", p: 1 }} />
                     <Typography
                       color="white"
                       sx={{
@@ -108,9 +105,6 @@ export default function Home() {
                 borderLeft: "2px solid #5C2C6D",
                 borderBottom: "2px solid #5C2C6D",
                 background: "#dffffa",
-                // backgroundImage:
-                //   "linear-gradient(#fb88fe .1em, transparent .1em), linear-gradient(90deg, #fb88fe .1em, transparent .1em)",
-                // backgroundSize: "3rem 3rem",
               }}
             >
               <Grid container sx={{ display: "flex", flexDirection: "column" }}>
@@ -143,9 +137,6 @@ export default function Home() {
                     setLoadingAnime={setLoadingAnime}
                     setCharacters={setCharacters}
                   />
-                </Grid>
-                <Grid container sx={{ display: "flex", gap: "1rem" }}>
-                  <Ranks />
                 </Grid>
               </Grid>
             </CardContent>
