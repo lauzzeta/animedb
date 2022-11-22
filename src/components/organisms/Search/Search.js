@@ -44,6 +44,7 @@ export default function Search({
             borderRight: "2px solid #300350",
             borderLeft: "2px solid #300350",
             borderBottom: "2px solid #300350",
+            boxShadow: "none",
           }}
         >
           <CardContent
