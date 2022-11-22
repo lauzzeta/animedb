@@ -48,7 +48,10 @@ export default function Home() {
                 padding: ".5rem 1rem",
               }}
               action={
-                <IconButton href="https://github.com/lauzzeta" target="_blank">
+                <IconButton
+                  href="https://github.com/lauzzeta/animedb"
+                  target="_blank"
+                >
                   <GitHubIcon sx={{ color: "white" }} />
                 </IconButton>
               }
