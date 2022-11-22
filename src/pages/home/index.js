@@ -129,7 +129,7 @@ export default function Home() {
                     staff={staff}
                   />
                 </Grid>
-                <Grid container sx={{ display: "flex" }}>
+                <Grid container spacing={2} mt={1}>
                   <Results
                     loading={loading}
                     results={results}

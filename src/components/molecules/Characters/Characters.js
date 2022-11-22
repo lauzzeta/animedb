@@ -1,5 +1,6 @@
-import { Grid, Card, Typography, Box, Button } from "@mui/material";
+import { Grid, Card, Typography, Box } from "@mui/material";
 import React, { useState } from "react";
+import { ColorButton } from "../../../styles";
 
 export default function Characters({ characters }) {
   const [viewAll, setViewAll] = useState(false);
@@ -40,7 +41,7 @@ export default function Characters({ characters }) {
                   Characters
                 </Typography>
                 {characters?.length > 8 && (
-                  <Button
+                  <ColorButton
                     sx={{
                       border: "0px solid #300350",
                       borderRadius: 0,
@@ -60,7 +61,7 @@ export default function Characters({ characters }) {
                     >
                       {viewAll ? "Show less" : "Show all"}
                     </Typography>
-                  </Button>
+                  </ColorButton>
                 )}
               </Box>
             </Card>

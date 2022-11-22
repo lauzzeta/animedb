@@ -63,9 +63,9 @@ export const CustomTextField = styled(TextField)({
 
 export const ColorButton = styled(Button)(() => ({
   color: theme.palette.getContrastText(theme.palette.primary.main),
-  backgroundColor: "#3d0042",
+
   "&:hover": {
-    backgroundColor: theme.palette.primary.light,
+    backgroundColor: "#457b9d66",
   },
 }));
 
@@ -74,7 +74,6 @@ export const CustomCard = styled(Card)`
   ${({ theme }) => `
   &:hover {
     background-color: #457b9d66;
-    outline: 2px solid #a8dadc;
     cursor: pointer;
   }
   `}

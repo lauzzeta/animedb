@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid, CardMedia, Typography } from "@mui/material";
+import { Grid, Typography, Box } from "@mui/material";
 import { CustomCard } from "../../../styles";
 import { getCharacters, getFullAnime, getStaff } from "../../../api";
 import { Loading } from "../../molecules";
@@ -32,41 +32,57 @@ export default function Results({
     results &&
       !animeId &&
       results?.map((el, i) => (
-        <Grid
-          item
-          xs={6}
-          md={3}
-          sx={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          key={i}
-        >
+        <Grid item xs={6} sm={3} key={i} display="flex">
           <CustomCard
             sx={{
-              width: "190px",
-              height: "220px",
-              backgroundColor: "transparent",
-              my: "1rem",
+              p: 1,
+              background: "transparent",
               border: "0px solid #300350",
-              boxShadow: "0",
-              padding: ".5rem",
               borderRadius: 0,
-              // borderTop: "2px solid #300350",
-              // borderRight: "2px solid #300350",
-              // borderLeft: "2px solid #300350",
-              // borderBottom: "2px solid #300350",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
+              boxShadow: "none",
+              cursor: "pointer",
             }}
             onClick={() => {
               setAnime(el.mal_id);
             }}
           >
-            {/* <CardHeader
+            <Grid container display="flex" spacing={1}>
+              <Grid
+                item
+                xs={12}
+                display="flex"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Box
+                  component="img"
+                  alt=""
+                  height={170}
+                  width={150}
+                  src={el.images.jpg.large_image_url}
+                  sx={{
+                    border: "0px solid #300350",
+                    borderRadius: 0,
+                    borderTop: "2px solid #300350",
+                    borderRight: "2px solid #300350",
+                    borderLeft: "2px solid #300350",
+                    borderBottom: "2px solid #300350",
+                  }}
+                />
+              </Grid>
+              <Grid item xs={12} display="flex" justifyContent="center">
+                <Typography
+                  color="#300350"
+                  sx={{
+                    fontWeight: 500,
+                    fontSize: { xs: 11, sm: 10, md: 11, xl: 15 },
+                  }}
+                >
+                  {el.title}
+                </Typography>
+              </Grid>
+            </Grid>
+            {/* <CustomCardHeader
               style={{
                 // GRADIENTE COMO DIV DE DENTRO background: "-webkit-linear-gradient(180deg, hsla(197, 100%, 63%, 1) 0%, hsla(294, 100%, 55%, 1) 100%)",
                 borderBottom: "2px solid #5C2C6D",
@@ -77,28 +93,7 @@ export default function Results({
               }}
             /> */}
 
-            <CardMedia
-              component="img"
-              sx={{
-                width: 140,
-                height: 160,
-              }}
-              image={el.images.jpg.large_image_url}
-            />
             {/* <Box style={{backgroundColor:"none", maxWidth:"100%", marginTop:".5rem", display"}}> */}
-            <Typography
-              sx={{
-                maxHeight: "1rem",
-                textAlign: "center",
-                letterSpacing: ".15rem",
-                textOverflow: "ellipsis",
-                whiteSpace: "wrap",
-                fontSize: ".79rem",
-                marginTop: ".5rem",
-              }}
-            >
-              {el.title}
-            </Typography>
             {/* </Box> */}
           </CustomCard>
         </Grid>

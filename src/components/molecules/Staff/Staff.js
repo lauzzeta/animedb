@@ -1,5 +1,6 @@
-import { Grid, Card, Typography, Box, Button } from "@mui/material";
+import { Grid, Card, Typography, Box } from "@mui/material";
 import React, { useState } from "react";
+import { ColorButton } from "../../../styles";
 
 export default function Staff({ staff }) {
   const [viewAll, setViewAll] = useState(false);
@@ -40,7 +41,7 @@ export default function Staff({ staff }) {
                   Staff
                 </Typography>
                 {staff?.length > 8 && (
-                  <Button
+                  <ColorButton
                     sx={{
                       border: "0px solid #300350",
                       borderRadius: 0,
@@ -61,7 +62,7 @@ export default function Staff({ staff }) {
                     >
                       {viewAll ? "Show less" : "Show all"}
                     </Typography>
-                  </Button>
+                  </ColorButton>
                 )}
               </Box>
             </Card>
