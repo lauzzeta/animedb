@@ -69,7 +69,7 @@ export default function Staff({ staff }) {
           </Grid>
           {staff?.map(
             (el, i) =>
-              i < (viewAll ? staff?.length : 8) && (
+              i < (viewAll ? staff?.length : 4) && (
                 <Grid item xs={6} sm={4} md={3} display="flex" key={i}>
                   <Card
                     sx={{
@@ -81,6 +81,7 @@ export default function Staff({ staff }) {
                       borderRight: "2px solid #300350",
                       borderLeft: "2px solid #300350",
                       borderBottom: "2px solid #300350",
+                      boxShadow: "none",
                     }}
                   >
                     <Grid container display="flex" spacing={1}>
