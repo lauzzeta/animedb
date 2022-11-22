@@ -29,7 +29,6 @@ export default function Search({
     setAnimeSearch(null);
     setLoading(true);
     const response = await getResults(userSearch);
-    console.log(response.data);
     setResults(response.data);
     setLoading(false);
   };
