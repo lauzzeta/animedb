@@ -18,6 +18,7 @@ export default function Genres({ genres }) {
                   borderRight: "2px solid #300350",
                   borderLeft: "2px solid #300350",
                   borderBottom: "2px solid #300350",
+                  boxShadow: "none",
                 }}
               >
                 <Typography

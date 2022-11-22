@@ -81,6 +81,7 @@ export default function Characters({ characters }) {
                       borderRight: "2px solid #300350",
                       borderLeft: "2px solid #300350",
                       borderBottom: "2px solid #300350",
+                      boxShadow: "none",
                     }}
                   >
                     <Grid container display="flex" spacing={1}>
