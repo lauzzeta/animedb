@@ -20,6 +20,7 @@ export default function Home() {
   const [animeId, setAnimeId] = useState(null);
   const [animeSearch, setAnimeSearch] = useState();
   const [characters, setCharacters] = useState();
+  const [staff, setStaff] = useState();
   const [loadingAnime, setLoadingAnime] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -125,6 +126,7 @@ export default function Home() {
                     animeSearch={animeSearch}
                     animeId={animeId}
                     characters={characters}
+                    staff={staff}
                   />
                 </Grid>
                 <Grid container sx={{ display: "flex" }}>
@@ -136,6 +138,7 @@ export default function Home() {
                     setAnimeSearch={setAnimeSearch}
                     setLoadingAnime={setLoadingAnime}
                     setCharacters={setCharacters}
+                    setStaff={setStaff}
                   />
                 </Grid>
               </Grid>

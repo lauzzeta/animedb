@@ -7,3 +7,4 @@ export { default as Genres } from "./Genres";
 export { default as Characters } from "./Characters";
 export { default as Trailer } from "./Trailer";
 export { default as Platforms } from "./Platforms";
+export { default as Staff } from "./Staff";

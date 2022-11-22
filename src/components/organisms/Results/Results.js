@@ -12,6 +12,7 @@ export default function Results({
   setAnimeSearch,
   setLoadingAnime,
   setCharacters,
+  setStaff,
 }) {
   const setAnime = async (id) => {
     setLoadingAnime(true);
@@ -19,11 +20,9 @@ export default function Results({
     const anime = await getFullAnime(id);
     const characters = await getCharacters(id);
     const staff = await getStaff(id);
-    console.log(staff);
+    setStaff(staff.data);
     setCharacters(characters.data);
     setAnimeSearch(anime.data);
-    console.log(anime);
-    console.log(characters.data);
     setLoadingAnime(false);
   };
 
