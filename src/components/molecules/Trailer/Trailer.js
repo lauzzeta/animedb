@@ -8,7 +8,15 @@ export default function Trailer({ trailer }) {
         <Box
           component="iframe"
           width="100%"
-          sx={{ height: { xs: 300, md: 400 } }}
+          sx={{
+            height: { xs: 300, md: 400 },
+            border: "0px solid #300350",
+            borderRadius: 0,
+            borderTop: "2px solid #300350",
+            borderRight: "2px solid #300350",
+            borderLeft: "2px solid #300350",
+            borderBottom: "2px solid #300350",
+          }}
           src={trailer}
         ></Box>
       </Grid>
